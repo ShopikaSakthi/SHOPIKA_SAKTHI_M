@@ -1,0 +1,2 @@
+webpage named Kaapa is a static android apk security tester by which we can test the apk which is downloaded from any unknown websites is safe for our device or not  by testing 10 security testing and generates a user readable report and if that apk can cause trouble means it'll also generate the precautionary steps to follow to make your device safe from that dangerous apk (*KAAPA is an educational and static permission/tracker inspector —
+not a replacement for Google Play Protect or full antivirus software)
