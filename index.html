@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#b9775a">
+<title>KAAPA – APK Guardian</title>
+
+<!-- Self-Contained External App / APK / Browser Tab Icon (Cyber-Detective Puppy) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23fdf8f0'/%3E%3Cpath d='M25 26 C11 26 9 46 16 56 C19 60 25 57 25 49 Z' fill='%233b3029' stroke='%23231c18' stroke-width='3'/%3E%3Cpath d='M75 26 C89 26 91 46 84 56 C81 60 75 57 75 49 Z' fill='%23d97742' stroke='%23231c18' stroke-width='3'/%3E%3Cpath d='M26 36 C26 17 74 17 74 36 V60 C74 75 63 83 50 83 C37 83 26 75 26 60 Z' fill='%23e58850' stroke='%23231c18' stroke-width='3.5'/%3E%3Cellipse cx='50' cy='64' rx='18' ry='14' fill='%23f4a772'/%3E%3Crect x='22' y='34' width='56' height='21' rx='9' fill='%23332924' stroke='%23231c18' stroke-width='3'/%3E%3Crect x='26' y='37' width='48' height='15' rx='6' fill='%23594a42'/%3E%3Ccircle cx='39' cy='45' r='2.5' fill='%23fff6d6'/%3E%3Ccircle cx='63' cy='44' r='2.5' fill='%23fff6d6'/%3E%3Cellipse cx='50' cy='60' rx='6.5' ry='4.5' fill='%23231c18'/%3E%3Cpath d='M50 64.5 V69 M43 70 Q50 75 57 70' fill='none' stroke='%23231c18' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M43 81 L50 84 L57 81 V88 C57 92 50 95 50 95 C50 95 43 92 43 88 Z' fill='%23d97742' stroke='%23231c18' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23fdf8f0'/%3E%3Cpath d='M25 26 C11 26 9 46 16 56 C19 60 25 57 25 49 Z' fill='%233b3029' stroke='%23231c18' stroke-width='3'/%3E%3Cpath d='M75 26 C89 26 91 46 84 56 C81 60 75 57 75 49 Z' fill='%23d97742' stroke='%23231c18' stroke-width='3'/%3E%3Cpath d='M26 36 C26 17 74 17 74 36 V60 C74 75 63 83 50 83 C37 83 26 75 26 60 Z' fill='%23e58850' stroke='%23231c18' stroke-width='3.5'/%3E%3Cellipse cx='50' cy='64' rx='18' ry='14' fill='%23f4a772'/%3E%3Crect x='22' y='34' width='56' height='21' rx='9' fill='%23332924' stroke='%23231c18' stroke-width='3'/%3E%3Crect x='26' y='37' width='48' height='15' rx='6' fill='%23594a42'/%3E%3Ccircle cx='39' cy='45' r='2.5' fill='%23fff6d6'/%3E%3Ccircle cx='63' cy='44' r='2.5' fill='%23fff6d6'/%3E%3Cellipse cx='50' cy='60' rx='6.5' ry='4.5' fill='%23231c18'/%3E%3Cpath d='M50 64.5 V69 M43 70 Q50 75 57 70' fill='none' stroke='%23231c18' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M43 81 L50 84 L57 81 V88 C57 92 50 95 50 95 C50 95 43 92 43 88 Z' fill='%23d97742' stroke='%23231c18' stroke-width='2.5'/%3E%3C/svg%3E">
+<link rel="manifest" href='data:application/manifest+json,{"name":"KAAPA – APK Guardian","short_name":"KAAPA","start_url":".","display":"standalone","background_color":"#efe6da","theme_color":"#b9775a","icons":[{"src":"data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%23fdf8f0%27/%3E%3Cpath d=%27M25 26 C11 26 9 46 16 56 C19 60 25 57 25 49 Z%27 fill=%27%233b3029%27 stroke=%27%23231c18%27 stroke-width=%273%27/%3E%3Cpath d=%27M75 26 C89 26 91 46 84 56 C81 60 75 57 75 49 Z%27 fill=%27%23d97742%27 stroke=%27%23231c18%27 stroke-width=%273%27/%3E%3Cpath d=%27M26 36 C26 17 74 17 74 36 V60 C74 75 63 83 50 83 C37 83 26 75 26 60 Z%27 fill=%27%23e58850%27 stroke=%27%23231c18%27 stroke-width=%273.5%27/%3E%3Cellipse cx=%2750%27 cy=%2764%27 rx=%2718%27 ry=%2714%27 fill=%27%23f4a772%27/%3E%3Crect x=%2722%27 y=%2734%27 width=%2756%27 height=%2721%27 rx=%279%27 fill=%27%23332924%27 stroke=%27%23231c18%27 stroke-width=%273%27/%3E%3Crect x=%2726%27 y=%2737%27 width=%2748%27 height=%2715%27 rx=%276%27 fill=%27%23594a42%27/%3E%3Ccircle cx=%2739%27 cy=%2745%27 r=%272.5%27 fill=%27%23fff6d6%27/%3E%3Ccircle cx=%2763%27 cy=%2744%27 r=%272.5%27 fill=%27%23fff6d6%27/%3E%3Cellipse cx=%2750%27 cy=%2760%27 rx=%276.5%27 ry=%274.5%27 fill=%27%23231c18%27/%3E%3Cpath d=%27M50 64.5 V69 M43 70 Q50 75 57 70%27 fill=%27none%27 stroke=%27%23231c18%27 stroke-width=%273%27 stroke-linecap=%27round%27/%3E%3Cpath d=%27M43 81 L50 84 L57 81 V88 C57 92 50 95 50 95 C50 95 43 92 43 88 Z%27 fill=%27%23d97742%27 stroke=%27%23231c18%27 stroke-width=%272.5%27/%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}]}'>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#efe6da;--ink:#3b3029;--muted:#7a6b5f;--accent:#b9775a;--card:color-mix(in srgb,var(--bg) 55%,#fff);--line:color-mix(in srgb,var(--ink) 12%,transparent);--hi:#b5534a;--md:#c58b3c;--lo:#6f8f72;--in:#6d86a0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Fredoka','Segoe UI',system-ui,sans-serif;line-height:1.5;transition:background .4s;min-height:100vh;background-image:radial-gradient(color-mix(in srgb,var(--ink) 5%,transparent) 1.5px,transparent 1.5px);background-size:26px 26px}
+body.page-drag::after{content:"🐾 Drop your APK anywhere for KAAPA to sniff!";position:fixed;inset:14px;border:4px dashed var(--accent);border-radius:28px;background:color-mix(in srgb,var(--bg) 90%,transparent);display:grid;place-items:center;font-size:26px;font-weight:600;color:var(--accent);z-index:999;pointer-events:none}
+.wrap{max-width:900px;margin:0 auto;padding:20px 18px 60px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none}
+.brand-logo{display:block;width:62px;height:62px;min-width:62px;min-height:62px;flex-shrink:0;border-radius:18px;box-shadow:0 4px 12px rgba(59,48,41,.18);transition:transform .2s ease}
+.brand:hover .brand-logo{transform:rotate(-4deg) scale(1.06)}
+.brand b{font-size:30px;letter-spacing:.14em;display:block;line-height:1}
+.brand span{font-size:13px;color:var(--muted)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.card{position:relative;background:var(--card);border-radius:24px;padding:22px;box-shadow:0 6px 0 var(--line),0 14px 30px -18px rgba(60,40,20,.35);margin-top:20px;overflow:hidden}
+.card::before{content:"";position:absolute;top:-10px;right:-10px;width:90px;height:90px;opacity:.05;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='41' rx='11' ry='9' fill='%233b3029'/%3E%3Cellipse cx='18' cy='29' rx='4.5' ry='6' transform='rotate(-18 18 29)' fill='%233b3029'/%3E%3Cellipse cx='27' cy='21' rx='4.5' ry='6' fill='%233b3029'/%3E%3Cellipse cx='37' cy='21' rx='4.5' ry='6' fill='%233b3029'/%3E%3Cellipse cx='46' cy='29' rx='4.5' ry='6' transform='rotate(18 46 29)' fill='%233b3029'/%3E%3C/svg%3E") no-repeat center/contain;transform:rotate(18deg)}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 18px;background:var(--accent);color:#fff;font:inherit;font-weight:500;cursor:pointer;text-decoration:none;transition:transform .12s,opacity .15s}
+.btn:hover{opacity:.92}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn.sm{padding:6px 12px;font-size:13px}
+.menu-btn{width:48px;height:44px;padding:0;justify-content:center;border-radius:14px}
+.menu-btn .ico{width:26px;height:26px}
+
+/* ---------- Triple-Bone Slide-Out Menu Drawer ---------- */
+.drawer-bg{position:fixed;inset:0;background:rgba(30,22,16,.42);z-index:950;display:none;backdrop-filter:blur(2px)}
+.drawer-bg.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:295px;max-width:85vw;background:var(--card);border-left:2px solid var(--line);box-shadow:-12px 0 36px rgba(40,25,15,.25);z-index:951;padding:20px 18px;display:flex;flex-direction:column;gap:8px;transform:translateX(100%);transition:transform .24s ease}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:2px solid var(--line);margin-bottom:6px}
+.drawer-head b{font-size:19px;letter-spacing:.08em;display:flex;align-items:center;gap:8px}
+.nav-item{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:transparent;border:0;border-radius:14px;padding:12px 14px;font:inherit;font-size:16px;font-weight:500;color:var(--ink);cursor:pointer;transition:background .15s}
+.nav-item:hover,.nav-item.active{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.drawer-foot{margin-top:auto;padding-top:12px;border-top:1.5px solid var(--line);font-size:12.5px;color:var(--muted)}
+
+/* ---------- Info Pages (About Us, How It Works, Privacy) ---------- */
+.page-sec h2{margin:0 0 10px;font-size:24px;display:flex;align-items:center;gap:10px}
+.page-sec h3{margin:16px 0 6px;font-size:17px;color:var(--accent)}
+.page-sec p{margin:0 0 10px;color:var(--ink)}
+.page-sec ul{margin:0 0 12px;padding-left:20px}
+.page-sec li{margin:4px 0}
+.disclaimer-banner{background:color-mix(in srgb,var(--md) 14%,transparent);border:2px solid var(--md);border-radius:16px;padding:14px 16px;margin:14px 0}
+.disclaimer-banner b{color:var(--ink);display:block;margin-bottom:4px}
+
+.hero{display:grid;grid-template-columns:155px 1fr;gap:22px;align-items:center}
+.hero h1{margin:0 0 6px;font-size:28px;line-height:1.15}
+.hero p{margin:0 0 14px;color:var(--muted)}
+.hero-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+
+/* ---------- Interactive Puppy Stage & Treat Animation ---------- */
+.pup-stage{position:relative;cursor:pointer;user-select:none;text-align:center}
+.pup-bubble{position:absolute;top:-12px;left:50%;transform:translateX(-50%) scale(.85);background:var(--accent);color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:all .22s ease;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.pup-bubble.show{opacity:1;transform:translateX(-50%) translateY(-6px) scale(1)}
+.treat-fly{position:absolute;left:50%;bottom:12px;width:28px;height:16px;pointer-events:none;animation:bone-toss .85s cubic-bezier(.22,.9,.36,1) forwards}
+@keyframes bone-toss{0%{transform:translate(-50%,35px) rotate(0deg) scale(.6);opacity:1}50%{transform:translate(-50%,-42px) rotate(200deg) scale(1.15);opacity:1}85%{transform:translate(-50%,-6px) rotate(340deg) scale(.85);opacity:1}100%{transform:translate(-50%,0px) rotate(360deg) scale(0);opacity:0}}
+
+.paw-divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0 4px;color:var(--accent);opacity:.45;font-size:13px;letter-spacing:4px}
+
+.drop{margin-top:14px;border:3px dashed color-mix(in srgb,var(--accent) 55%,transparent);border-radius:22px;padding:30px 18px;text-align:center;cursor:pointer;transition:.2s;display:block;background:color-mix(in srgb,var(--bg) 28%,transparent)}
+.drop.on,.drop:hover{background:color-mix(in srgb,var(--accent) 12%,transparent);border-color:var(--accent);transform:translateY(-1px)}
+.drop .ico{width:38px;height:38px;color:var(--accent)}
+.drop small{color:var(--muted);display:block;margin-top:4px}
+input[type=file]{position:fixed;top:-100px;left:-100px;width:1px;height:1px;opacity:0}
+label.btn{cursor:pointer}
+.err-box{margin-top:14px;padding:12px 16px;border-radius:14px;background:color-mix(in srgb,var(--hi) 15%,transparent);border:2px solid var(--hi);color:var(--hi);font-weight:500}
+
+/* ---------- Animated GIF-Style KAAPA Puppy ---------- */
+.pup{width:100%;height:auto;overflow:visible;--tongue:none;--sweat:none;--brow:translateY(0);--ear-l:rotate(14deg 22px 52px);--ear-r:rotate(-14deg 98px 52px);--eye-scale:1;--nose-y:0px;--tail-rot:0deg}
+.pup.idle{animation:pup-breathe 2.6s ease-in-out infinite,pup-blink 4.5s infinite,pup-tail 1.8s ease-in-out infinite}
+.pup.sniffing{animation:pup-sniff .55s ease-in-out infinite,pup-tail .35s ease-in-out infinite}
+.pup.happy{--tongue:block;--sweat:none;animation:pup-jump .75s ease-in-out infinite,pup-ears .75s ease-in-out infinite,pup-tail .28s ease-in-out infinite}
+.pup.cautious{--tongue:none;--sweat:none;--brow:translateY(-2px);animation:pup-tilt 2.2s ease-in-out infinite}
+.pup.worried{--tongue:none;--sweat:block;--brow:translateY(-3.5px);animation:pup-shake .4s ease-in-out infinite,pup-sweat-drop 1.2s ease-in infinite}
+
+@keyframes pup-breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.02)}}
+@keyframes pup-blink{0%,46%,50%,96%,100%{--eye-scale:1}48%,98%{--eye-scale:0.12}}
+@keyframes pup-sniff{0%,100%{transform:translateX(-4px) rotate(-3deg);--nose-y:-1.5px}50%{transform:translateX(4px) rotate(3deg);--nose-y:1.5px}}
+@keyframes pup-jump{0%,100%{transform:translateY(0) rotate(0deg)}35%{transform:translateY(-9px) rotate(-3deg)}70%{transform:translateY(-4px) rotate(3deg)}}
+@keyframes pup-ears{0%,100%{--ear-l:rotate(14deg 22px 52px);--ear-r:rotate(-14deg 98px 52px)}50%{--ear-l:rotate(24deg 22px 52px);--ear-r:rotate(-24deg 98px 52px)}}
+@keyframes pup-tail{0%,100%{--tail-rot:-8deg}50%{--tail-rot:16deg}}
+@keyframes pup-tilt{0%,100%{transform:rotate(0deg)}35%{transform:rotate(8deg)}75%{transform:rotate(-5deg)}}
+@keyframes pup-shake{0%,100%{transform:translateX(0) rotate(0deg)}25%{transform:translateX(-3px) rotate(-2deg)}75%{transform:translateX(3px) rotate(2deg)}}
+@keyframes pup-sweat-drop{0%{--sweat-y:0px;--sweat-op:1}80%{--sweat-y:10px;--sweat-op:1}100%{--sweat-y:14px;--sweat-op:0}}
+
+.themes{display:none;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.themes.open{display:flex}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);cursor:pointer;padding:0}
+.sw.sel{box-shadow:0 0 0 3px var(--accent)}
+.themes input[type=color]{width:38px;height:34px;border:0;background:none;padding:0;cursor:pointer}
+.sum{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center}
+.ring{position:relative;width:150px;height:150px;margin:auto}
+.ring svg{transform:rotate(-90deg)}
+.ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring b{font-size:38px;line-height:1}
+.ring small{color:var(--muted)}
+.verdict-row{display:flex;align-items:center;gap:14px}
+.verdict-row .pup{width:76px;flex:none}
+.verdict-sub{margin:4px 0 0;font-size:15px;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin-top:14px}
+.stat{background:color-mix(in srgb,var(--bg) 70%,transparent);border-radius:14px;padding:10px 12px}
+.stat b{display:block;font-size:19px}
+.stat span{font-size:12px;color:var(--muted)}
+.hash-box{margin-top:14px;background:color-mix(in srgb,var(--bg) 70%,transparent);border-radius:14px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hash-info{min-width:0;flex:1}
+.hash-info span{display:block;font-size:12px;color:var(--muted)}
+.hash-info code{display:block;margin-top:2px;font-size:12px;background:transparent;padding:0;color:var(--ink);word-break:break-all}
+.hash-actions{display:flex;gap:8px;flex-wrap:wrap}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--accent) 14%,transparent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);color:var(--ink)}
+.report-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.print-meta{display:none;font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ---------- Support & Complaint Chat Modal (Triggered from Menu / Report) ---------- */
+.chat-box{position:fixed;right:20px;bottom:20px;width:350px;max-width:calc(100vw - 32px);background:var(--card);border:2px solid var(--line);border-radius:24px;box-shadow:0 18px 40px -12px rgba(45,30,15,.45);z-index:960;overflow:hidden;display:none;flex-direction:column}
+.chat-box.open{display:flex}
+.chat-head{background:var(--accent);color:#fff;padding:13px 16px;display:flex;align-items:center;justify-content:space-between}
+.chat-head b{font-size:16px;display:block;line-height:1.1}
+.chat-head small{font-size:12px;opacity:.9}
+.chat-close{background:none;border:0;color:#fff;font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+.chat-log{padding:14px;max-height:190px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;background:color-mix(in srgb,var(--bg) 45%,transparent)}
+.msg{padding:9px 12px;border-radius:14px;font-size:13.5px;max-width:88%;line-height:1.4}
+.msg.bot{background:var(--card);border:1.5px solid var(--line);align-self:flex-start}
+.msg.usr{background:var(--accent);color:#fff;align-self:flex-end}
+.chat-form{padding:12px;display:flex;flex-direction:column;gap:8px;border-top:1.5px solid var(--line)}
+.chat-form input,.chat-form select,.chat-form textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:8px 11px;font:inherit;font-size:13.5px;background:color-mix(in srgb,var(--bg) 35%,#fff);color:var(--ink);outline:none}
+.chat-form input:focus,.chat-form select:focus,.chat-form textarea:focus{border-color:var(--accent)}
+.chat-form textarea{resize:none;min-height:66px}
+.chat-scan-tag{font-size:11.5px;color:var(--muted);background:color-mix(in srgb,var(--bg) 65%,transparent);padding:5px 9px;border-radius:8px}
+
+h2{margin:0 0 4px;font-size:22px}
+.f{border:2px solid var(--line);border-radius:18px;margin-top:12px;overflow:hidden}
+.f summary{display:flex;align-items:center;gap:10px;padding:13px 15px;cursor:pointer;list-style:none;font-weight:500}
+.f summary::-webkit-details-marker{display:none}
+.chip{margin-left:auto;font-size:12px;color:#fff;border-radius:999px;padding:3px 11px;white-space:nowrap}
+.high{--c:var(--hi)}.medium{--c:var(--md)}.low{--c:var(--lo)}.info{--c:var(--in)}
+.f .ico.s{color:var(--c)}.chip{background:var(--c)}
+.f .body{padding:0 16px 14px 44px;color:var(--ink)}
+.f .body p{margin:0 0 8px;color:var(--muted)}
+.f h4{margin:8px 0 4px;font-size:14px;color:var(--accent);display:flex;gap:6px;align-items:center}
+.f ul{margin:0;padding-left:18px}
+.f li{margin:3px 0}
+code{background:var(--line);border-radius:6px;padding:1px 6px;font-size:13px;word-break:break-all}
+.hide{display:none!important}
+.note{font-size:13px;color:var(--muted);margin-top:18px;text-align:center}
+@media(max-width:640px){.hero,.sum{grid-template-columns:1fr}.hero .pup-stage{max-width:140px;margin:auto}.hero{text-align:center}.hero-actions{justify-content:center}.verdict-row{flex-direction:column;text-align:center}.f .body{padding-left:16px}}
+
+@media print{
+  @page{margin:14mm}
+  body{background:#fff!important;color:#222!important}
+  .wrap{max-width:100%;padding:0}
+  .nav-actions,.themes,.report-actions,.hash-actions,#home,#busy,.chat-box,.drawer,.drawer-bg{display:none!important}
+  .card{box-shadow:none!important;border:1.5px solid #ddd;background:#fff!important;break-inside:avoid;margin-top:12px;padding:16px}
+  .f{break-inside:avoid;border-color:#ccc}
+  .pup{animation:none!important}
+  .print-meta{display:block!important}
+  .chip{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true">
+<defs>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3l10 18H2L12 3zM12 10v4M12 17.5v.5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></symbol>
+<symbol id="i-pal" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.5 0 2-1 1.5-2-.6-1.2.2-2.5 1.5-2.5H17a4 4 0 004-4c0-5-4-9.5-9-9.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7" r="1"/></symbol>
+<symbol id="i-step" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V6l8-3zM9 12l2 2 4-4"/></symbol>
+<symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9l-6-6z"/><path d="M14 3v6h6M9 14h6M9 17h4"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></symbol>
+
+<!-- Dog-Bone Triple Dash Menu Icon -->
+<symbol id="i-menu" viewBox="0 0 24 24">
+  <rect x="6" y="4.8" width="12" height="2.4" rx="1" fill="currentColor" stroke="none"/>
+  <circle cx="5.5" cy="4.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="5.5" cy="7.3" r="1.6" fill="currentColor" stroke="none"/>
+  <circle cx="18.5" cy="4.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="18.5" cy="7.3" r="1.6" fill="currentColor" stroke="none"/>
+
+  <rect x="6" y="10.8" width="12" height="2.4" rx="1" fill="currentColor" stroke="none"/>
+  <circle cx="5.5" cy="10.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="5.5" cy="13.3" r="1.6" fill="currentColor" stroke="none"/>
+  <circle cx="18.5" cy="10.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="18.5" cy="13.3" r="1.6" fill="currentColor" stroke="none"/>
+
+  <rect x="6" y="16.8" width="12" height="2.4" rx="1" fill="currentColor" stroke="none"/>
+  <circle cx="5.5" cy="16.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="5.5" cy="19.3" r="1.6" fill="currentColor" stroke="none"/>
+  <circle cx="18.5" cy="16.7" r="1.6" fill="currentColor" stroke="none"/><circle cx="18.5" cy="19.3" r="1.6" fill="currentColor" stroke="none"/>
+</symbol>
+
+<!-- Single Dog Bone Icon -->
+<symbol id="i-bone" viewBox="0 0 24 24">
+  <path d="M6.5 9.5a2.5 2.5 0 11-2.2-3.7 2.5 2.5 0 113.7 2.2h8a2.5 2.5 0 113.7-2.2 2.5 2.5 0 11-2.2 3.7v5a2.5 2.5 0 112.2 3.7 2.5 2.5 0 11-3.7-2.2h-8a2.5 2.5 0 11-3.7 2.2 2.5 2.5 0 112.2-3.7z" fill="currentColor" stroke="none"/>
+</symbol>
+
+<!-- Doghouse Home Icon -->
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11L12 3l9 8v9a1 1 0 01-1 1h-4v-5a4 4 0 00-8 0v5H4a1 1 0 01-1-1v-9z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V6l8-3z"/></symbol>
+</defs>
+</svg>
+
+<!-- Three-Bone Slide-Out Navigation Drawer -->
+<div class="drawer-bg" id="drawerBg"></div>
+<nav class="drawer" id="drawer" aria-label="Main Menu">
+  <div class="drawer-head">
+    <b><svg class="ico" style="color:var(--accent)"><use href="#i-bone"/></svg> KAAPA KENNEL</b>
+    <button class="chat-close" id="drawerClose" type="button" style="color:var(--ink)" aria-label="Close menu">&times;</button>
+  </div>
+  <button class="nav-item active" data-nav="home" type="button"><svg class="ico"><use href="#i-home"/></svg>Doghouse / APK Scanner</button>
+  <button class="nav-item" data-nav="how" type="button"><svg class="ico"><use href="#i-step"/></svg>How KAAPA Sniffs APKs</button>
+  <button class="nav-item" data-nav="about" type="button"><svg class="ico"><use href="#i-info"/></svg>About Us &amp; Disclaimer</button>
+  <button class="nav-item" data-nav="privacy" type="button"><svg class="ico"><use href="#i-shield"/></svg>Privacy Policy</button>
+  <button class="nav-item" id="menuChatBtn" type="button"><svg class="ico"><use href="#i-chat"/></svg>Bark at Host / Report Issue</button>
+  <div class="drawer-foot">🐾 KAAPA – Your loyal APK guardian.<br>100% browser-based static inspection.</div>
+</nav>
+
+<div class="wrap">
+<header>
+  <div class="brand" id="brandHome" title="Back to Doghouse">
+    <!-- Top-Left Cyber-Detective Puppy Logo -->
+    <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="62" height="62" role="img" aria-label="KAAPA Cyber-Detective Puppy Logo">
+      <defs>
+        <linearGradient id="visorGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3a302b"/>
+          <stop offset="55%" stop-color="#6b584e"/>
+          <stop offset="100%" stop-color="#2b221e"/>
+        </linearGradient>
+      </defs>
+      <!-- Rounded App Icon Tile -->
+      <rect x="2" y="2" width="96" height="96" rx="22" fill="#fdf8f0" stroke="#e4d6c5" stroke-width="2"/>
+      <!-- Left Dark Floppy Ear -->
+      <path d="M25 27 C12 27 10 47 17 57 C20 61 25 58 25 50 Z" fill="#3b3029" stroke="#231c18" stroke-width="3.2" stroke-linejoin="round"/>
+      <!-- Right Terracotta Floppy Ear -->
+      <path d="M75 27 C88 27 90 47 83 57 C80 61 75 58 75 50 Z" fill="#d97742" stroke="#231c18" stroke-width="3.2" stroke-linejoin="round"/>
+      <!-- Puppy Head -->
+      <path d="M26 37 C26 18 74 18 74 37 V60 C74 75 63 83 50 83 C37 83 26 75 26 60 Z" fill="#e58850" stroke="#231c18" stroke-width="3.5" stroke-linejoin="round"/>
+      <!-- Warm Muzzle Patch -->
+      <ellipse cx="50" cy="64" rx="18" ry="14" fill="#f4a772"/>
+      <!-- Radar Visor Frame -->
+      <rect x="21" y="34" width="58" height="22" rx="9" fill="#231c18"/>
+      <rect x="24" y="37" width="52" height="16" rx="6.5" fill="url(#visorGrad)"/>
+      <!-- Radar Grid & Blips inside Visor -->
+      <circle cx="50" cy="45" r="10" fill="none" stroke="#fdf8f0" stroke-opacity="0.28" stroke-width="1"/>
+      <circle cx="50" cy="45" r="5" fill="none" stroke="#fdf8f0" stroke-opacity="0.28" stroke-width="1"/>
+      <line x1="26" y1="45" x2="74" y2="45" stroke="#fdf8f0" stroke-opacity="0.25" stroke-width="1"/>
+      <line x1="50" y1="37" x2="50" y2="53" stroke="#fdf8f0" stroke-opacity="0.25" stroke-width="1"/>
+      <!-- Visor Gloss & Glowing Eye Dots -->
+      <path d="M51 37 L63 37 L55 53 L45 53 Z" fill="#ffffff" fill-opacity="0.16"/>
+      <circle cx="38" cy="45" r="2.3" fill="#fff6d6"/>
+      <circle cx="64" cy="43.5" r="2.3" fill="#fff6d6"/>
+      <!-- Nose & Smile -->
+      <ellipse cx="50" cy="60" rx="6.5" ry="4.5" fill="#231c18"/>
+      <ellipse cx="48.5" cy="58.7" rx="2.2" ry="1.1" fill="#ffffff" fill-opacity="0.65"/>
+      <path d="M50 64.5 V69 M43 70 Q50 75 57 70" fill="none" stroke="#231c18" stroke-width="3" stroke-linecap="round"/>
+      <!-- Shield Collar Tag -->
+      <path d="M43 81 L50 84 L57 81 V88 C57 92 50 95 50 95 C50 95 43 92 43 88 Z" fill="#d97742" stroke="#231c18" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M50 84 L57 81 V88 C57 92 50 95 50 95 Z" fill="#3b3029"/>
+    </svg>
+    <div><b>KAAPA</b><span>Your loyal APK guardian</span></div>
+  </div>
+  <div class="nav-actions">
+    <button class="btn ghost" id="themeBtn" type="button"><svg class="ico"><use href="#i-pal"/></svg>Coat Theme</button>
+    <button class="btn ghost menu-btn" id="menuBtn" type="button" aria-label="Open bone menu" title="Menu"><svg class="ico"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+<div class="themes" id="themes"></div>
+
+<!-- HOME / SCANNER VIEW -->
+<section class="card" id="home">
+  <div class="hero">
+    <div class="pup-stage" id="pupStage" title="Click to pet KAAPA!">
+      <div class="pup-bubble" id="pupBubble">Woof! Ready to guard! 🐾</div>
+      <svg class="pup idle" id="pup1" viewBox="0 0 120 120"><use href="#pup"/></svg>
+    </div>
+    <div>
+      <h1>Woof! Drop an APK and KAAPA will sniff it out.</h1>
+      <p>Check any downloaded Android app for hidden trackers, risky permissions, and safety signals in plain English.</p>
+      <div class="hero-actions">
+        <label class="btn" id="pick" for="file"><svg class="ico"><use href="#i-up"/></svg>Choose APK file</label>
+        <button class="btn ghost" id="treatBtn" type="button"><svg class="ico" style="color:var(--accent)"><use href="#i-bone"/></svg>Toss a Treat</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="paw-divider" aria-hidden="true">🐾 🐾 🐾</div>
+
+  <label class="drop" id="drop" for="file" tabindex="0" role="button" aria-label="Upload APK file">
+    <svg class="ico"><use href="#i-up"/></svg>
+    <div><b>Drag &amp; drop, paste (Ctrl+V), or click to upload your .apk</b></div>
+    <small>(100% offline for report generation) • Your file never leaves your device</small>
+  </label>
+  <div class="err-box hide" id="errBox"></div>
+  <input type="file" id="file">
+</section>
+
+<!-- SCANNING SPINNER VIEW -->
+<section class="card hide" id="busy" style="text-align:center">
+  <svg class="pup sniffing" style="width:110px;margin:auto;display:block" viewBox="0 0 120 120"><use href="#pup"/></svg>
+  <p id="busyMsg" style="font-weight:500;font-size:18px;margin-top:8px">KAAPA is sniffing through the app…</p>
+</section>
+
+<!-- REPORT VIEW -->
+<section class="hide" id="report">
+  <div class="card sum">
+    <div class="ring">
+      <svg width="150" height="150" viewBox="0 0 150 150"><circle cx="75" cy="75" r="64" fill="none" stroke="var(--line)" stroke-width="14"/><circle id="arc" cx="75" cy="75" r="64" fill="none" stroke="var(--lo)" stroke-width="14" stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="402" style="transition:stroke-dashoffset 1s"/></svg>
+      <div><b id="score">0</b><small>safety score</small></div>
+    </div>
+    <div>
+      <div class="verdict-row">
+        <svg class="pup" id="pup2" viewBox="0 0 120 120"><use href="#pup"/></svg>
+        <div>
+          <h2 id="verdict"></h2>
+          <p class="verdict-sub" id="verdictSub"></p>
+          <div id="fname" style="color:var(--muted);font-size:13px;margin-top:4px;word-break:break-all"></div>
+          <div class="print-meta" id="printMeta"></div>
+        </div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="hash-box">
+        <div class="hash-info">
+          <span>Unique App Fingerprint (SHA-256)</span>
+          <code id="shaVal">Calculating…</code>
+        </div>
+        <div class="hash-actions">
+          <button class="btn ghost sm" id="copyHashBtn" type="button"><svg class="ico"><use href="#i-copy"/></svg><span id="copyHashTxt">Copy</span></button>
+          <a class="btn ghost sm" id="vtLink" href="https://www.virustotal.com/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ext"/></svg>VirusTotal Check</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>🐾 What KAAPA Sniffed Out &amp; What You Should Do</h2>
+    <div id="list"></div>
+    <div class="report-actions">
+      <button class="btn" id="pdfBtn" type="button"><svg class="ico"><use href="#i-pdf"/></svg>Save as PDF Report</button>
+      <button class="btn ghost" id="reportIssueBtn" type="button"><svg class="ico"><use href="#i-chat"/></svg>Report Wrong Result / Issue</button>
+      <button class="btn ghost" id="again" type="button"><svg class="ico"><use href="#i-up"/></svg>Sniff another APK</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US & DISCLAIMER PAGE -->
+<section class="card page-sec hide" id="about">
+  <h2><svg class="ico"><use href="#i-info"/></svg>About KAAPA &amp; Important Disclaimer</h2>
+  <p><b>KAAPA (Your Loyal APK Guardian)</b> is a lightweight, privacy-first safety watchdog built to translate complex Android app internals into simple, everyday English before you tap "Install".</p>
+  <div class="disclaimer-banner">
+    <b>Important Safety Notice</b>
+    KAAPA is an educational and static permission/tracker inspector — <b>not a replacement for Google Play Protect or full antivirus software</b>. Always download apps from trusted stores and keep Google Play Protect enabled on your phone.
+  </div>
+  <h3>Why We Built KAAPA</h3>
+  <ul>
+    <li><b>Zero Technical Jargon:</b> Instead of cryptic code names, KAAPA barks clearly if an app can read your bank OTPs, watch your screen, or track your GPS location.</li>
+    <li><b>100% On-Device Privacy:</b> Your APK files are unpacked and inspected strictly inside your own browser—nothing is ever uploaded to any cloud server.</li>
+    <li><b>Instant Trust Signals:</b> Generates a SHA-256 digital fingerprint, detects 18+ hidden ad/analytics trackers, and lets you export a clean PDF safety report.</li>
+  </ul>
+  <p style="margin-top:16px"><button class="btn" data-nav="home" type="button"><svg class="ico"><use href="#i-home"/></svg>Back to Doghouse</button></p>
+</section>
+
+<!-- HOW IT WORKS PAGE -->
+<section class="card page-sec hide" id="how">
+  <h2><svg class="ico"><use href="#i-step"/></svg>How KAAPA Sniffs Your APK</h2>
+  <p>Every time you drop an <code>.apk</code> (or split <code>.xapk</code> / <code>.apkm</code>) file into KAAPA, our watchdog runs 10 static safety checks in seconds:</p>
+  <ul>
+    <li><b>Permission Audit:</b> Checks 18 sensitive permissions including SMS reading, Accessibility Service screen control, overlay popups, microphone, camera, and background GPS.</li>
+    <li><b>Hidden Ad &amp; Analytics Trackers:</b> Scans the app's compiled code for 18 third-party advertising and tracking SDKs (Meta/Facebook, Google AdMob, Firebase, Unity Ads, AppsFlyer, Adjust, and more).</li>
+    <li><b>Signature &amp; Build Hygiene:</b> Verifies whether a classic signing stamp is present and flags unfinished <code>debuggable</code> test builds or unencrypted <code>http://</code> web links.</li>
+    <li><b>SHA-256 Fingerprint:</b> Computes the exact cryptographic hash so you can cross-check the file against 70+ antivirus engines on VirusTotal with one click.</li>
+  </ul>
+  <p style="margin-top:16px"><button class="btn" data-nav="home" type="button"><svg class="ico"><use href="#i-home"/></svg>Try Sniffing an APK</button></p>
+</section>
+
+<!-- PRIVACY POLICY PAGE -->
+<section class="card page-sec hide" id="privacy">
+  <h2><svg class="ico"><use href="#i-shield"/></svg>Privacy Policy</h2>
+  <p>Your privacy is built into KAAPA's architecture by design:</p>
+  <ul>
+    <li><b>No File Uploads:</b> All APK extraction, manifest parsing, bytecode scanning, and SHA-256 hashing happen locally in your browser's memory. Your APK files never leave your device.</li>
+    <li><b>No Tracking Cookies:</b> KAAPA only uses your browser's <code>localStorage</code> to remember your chosen background coat theme.</li>
+    <li><b>Support &amp; Complaint Messages:</b> If you choose to send a message via <b>Bone Menu → Bark at Host / Report Issue</b>, only the email address, message, and optional scan summary you submit are transmitted to the host so we can respond to your feedback.</li>
+  </ul>
+  <p style="margin-top:16px"><button class="btn" data-nav="home" type="button"><svg class="ico"><use href="#i-home"/></svg>Back to Doghouse</button></p>
+</section>
+
+<p class="note">🐾 KAAPA is a static permission &amp; tracker inspector — not a replacement for Google Play Protect or full antivirus software.</p>
+</div>
+
+<!-- Support & Complaint Chat Box (Opened via Bone Menu -> Bark at Host / Report Issue) -->
+<div class="chat-box" id="chatBox" role="dialog" aria-label="KAAPA Support and Complaint Chat">
+  <div class="chat-head">
+    <div>
+      <b>KAAPA Support Desk 🐾</b>
+      <small>Send a complaint or feedback to the creator</small>
+    </div>
+    <button class="chat-close" id="chatClose" type="button" aria-label="Close chat">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog">
+    <div class="msg bot">Woof! Found a bug, wrong scan score, or have a complaint? Write below and it goes straight to the host!</div>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <div class="chat-scan-tag hide" id="chatScanTag"></div>
+    <select id="chatType" aria-label="Issue category">
+      <option value="Wrong Scan Result">Wrong Scan Score / False Alert</option>
+      <option value="App Bug / Error">App Bug / Won't Open APK</option>
+      <option value="Suspicious APK Report">Report a Suspicious / Scam APK</option>
+      <option value="Feature Request / Feedback">Suggestion / General Message</option>
+    </select>
+    <input type="email" id="chatEmail" placeholder="Your email (so host can reply)" required>
+    <textarea id="chatMsg" placeholder="Describe your complaint or message..." required></textarea>
+    <button class="btn" id="chatSendBtn" type="submit" style="justify-content:center">Send Message to Host</button>
+  </form>
+</div>
+
+<svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true"><defs>
+<g id="pup">
+<!-- Wagging Tail -->
+<path style="transform-origin:88px 86px;transform:rotate(var(--tail-rot,0deg))" d="M88 86 Q112 72 108 54 Q100 66 84 78 Z" fill="#8d6048"/>
+<ellipse style="transform:var(--ear-l,rotate(14deg 22px 52px))" cx="22" cy="52" rx="15" ry="27" fill="#8d6048"/>
+<ellipse style="transform:var(--ear-r,rotate(-14deg 98px 52px))" cx="98" cy="52" rx="15" ry="27" fill="#8d6048"/>
+<circle cx="60" cy="58" r="40" fill="#e9c9a5"/>
+<ellipse cx="60" cy="74" rx="22" ry="17" fill="#fbeeda"/>
+<g style="transform-origin:60px 52px;transform:scaleY(var(--eye-scale,1))">
+  <circle cx="44" cy="52" r="5.5" fill="#3b3029"/><circle cx="76" cy="52" r="5.5" fill="#3b3029"/>
+  <circle cx="45.8" cy="50" r="1.8" fill="#fff"/><circle cx="77.8" cy="50" r="1.8" fill="#fff"/>
+</g>
+<g style="transform:var(--brow,translateY(0))" stroke="#8d6048" stroke-width="3" stroke-linecap="round"><path d="M37 41l12-2M71 39l12 2"/></g>
+<path style="display:var(--sweat,none);opacity:var(--sweat-op,1);transform:translateY(var(--sweat-y,0px))" d="M89 34c3 4 4 7 0 10-4-3-3-6 0-10z" fill="#7ec8e3"/>
+<g style="transform:translateY(var(--nose-y,0px))">
+  <ellipse cx="60" cy="67" rx="7.5" ry="5.5" fill="#3b3029"/>
+  <path d="M60 72v5M52 78q8 6 16 0" fill="none" stroke="#3b3029" stroke-width="2.5" stroke-linecap="round"/>
+  <path style="display:var(--tongue,none)" d="M56 81q4 12 8 0z" fill="#e58f9b"/>
+</g>
+<path d="M30 96q30 20 60 0v6q-30 20-60 0z" fill="var(--accent)"/>
+<circle cx="60" cy="108" r="5" fill="#f2d9a6"/>
+</g></defs></svg>
+
+<script>
+const $=id=>document.getElementById(id);
+const ic=n=>`<svg class="ico s"><use href="#i-${n}"/></svg>`;
+
+/* =========================================================
+   HOST CONFIGURATION: Paste your free Web3Forms Access Key
+   Get one in 10 seconds at https://web3forms.com/
+   ========================================================= */
+const HOST_EMAIL = 'your-email@example.com'; // Fallback email address
+const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'; // Paste key here
+
+let lastScanContext = 'No APK scanned yet';
+
+/* ---------- Interactive Dog Features (Petting & Treat Toss) ---------- */
+const BARKS = [
+  'Woof! Ready to guard! 🐾',
+  'Sniffing for sneaky apps! 🦴',
+  'Good human! *tail wag* ❤️',
+  'No malware gets past KAAPA! 🛡️',
+  'Drop an APK, I am on duty! 🐶'
+];
+let barkTimer;
+function showBark(msg){
+  const b = $('pupBubble');
+  b.textContent = msg;
+  b.classList.add('show');
+  clearTimeout(barkTimer);
+  barkTimer = setTimeout(()=>b.classList.remove('show'), 2100);
+}
+
+$('pupStage').onclick = () => {
+  const p = $('pup1');
+  p.classList.remove('idle');
+  p.classList.add('happy');
+  showBark(BARKS[Math.floor(Math.random()*BARKS.length)]);
+  setTimeout(()=>{
+    p.classList.remove('happy');
+    p.classList.add('idle');
+  }, 1500);
+};
+
+$('treatBtn').onclick = () => {
+  const stage = $('pupStage');
+  const bone = document.createElementNS('http://www.w3.org/2000/svg','svg');
+  bone.setAttribute('viewBox','0 0 24 24');
+  bone.setAttribute('class','treat-fly');
+  bone.style.color = 'var(--accent)';
+  bone.innerHTML = '<use href="#i-bone"/>';
+  stage.appendChild(bone);
+  setTimeout(()=>bone.remove(), 900);
+
+  const p = $('pup1');
+  p.classList.remove('idle');
+  p.classList.add('happy');
+  showBark('Yum! Crunchy bone! 🦴✨');
+  setTimeout(()=>{
+    p.classList.remove('happy');
+    p.classList.add('idle');
+  }, 1600);
+};
+
+/* ---------- Triple-Bone Menu Drawer & Page Navigation ---------- */
+function toggleDrawer(open){
+  $('drawer').classList.toggle('open',open);
+  $('drawerBg').classList.toggle('open',open);
+}
+$('menuBtn').onclick=()=>toggleDrawer(true);
+$('drawerClose').onclick=()=>toggleDrawer(false);
+$('drawerBg').onclick=()=>toggleDrawer(false);
+
+function showView(id){
+  ['home','busy','report','about','how','privacy'].forEach(x=>$(x).classList.toggle('hide',x!==id));
+  document.querySelectorAll('.nav-item[data-nav]').forEach(btn=>{
+    btn.classList.toggle('active',btn.dataset.nav===id||(id==='report'&&btn.dataset.nav==='home'));
+  });
+  toggleDrawer(false);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('[data-nav]').forEach(el=>{
+  el.onclick=()=>showView(el.dataset.nav);
+});
+$('brandHome').onclick=()=>showView('home');
+$('menuChatBtn').onclick=()=>{toggleDrawer(false);openChat()};
+
+/* ---------- theme ---------- */
+const THEMES=['#efe6da','#e3ebe0','#f1dfdc','#dde6ee','#e8e2ef','#f1ead0'];
+function lum(h){const n=parseInt(h.slice(1),16),f=v=>{v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)};return .2126*f(n>>16)+.7152*f(n>>8&255)+.0722*f(n&255)}
+function setBg(c){
+  const r=document.documentElement.style;
+  r.setProperty('--bg',c);
+  const dark=lum(c)<.35;
+  r.setProperty('--ink',dark?'#f3ece4':'#3b3029');
+  r.setProperty('--muted',dark?'#c9bcae':'#7a6b5f');
+  document.querySelectorAll('.sw').forEach(s=>s.classList.toggle('sel',s.dataset.c===c));
+  try{localStorage.setItem('kaapa-bg',c)}catch(e){}
+}
+THEMES.forEach(c=>{const b=document.createElement('button');b.className='sw';b.type='button';b.dataset.c=c;b.style.background=c;b.setAttribute('aria-label','Theme '+c);b.onclick=()=>setBg(c);$('themes').appendChild(b)});
+const cp=document.createElement('input');cp.type='color';cp.value='#efe6da';cp.title='Pick your own colour';cp.oninput=e=>setBg(e.target.value);$('themes').appendChild(cp);
+$('themeBtn').onclick=()=>$('themes').classList.toggle('open');
+try{const s=localStorage.getItem('kaapa-bg');if(s)setBg(s)}catch(e){}
+
+/* ---------- SHA-256 Fingerprint Generator ---------- */
+async function computeSha256(buf){
+  if(!crypto||!crypto.subtle)return 'Unavailable in this browser';
+  const hashBuf=await crypto.subtle.digest('SHA-256',buf);
+  return [...new Uint8Array(hashBuf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ---------- universal APK / ZIP reader ---------- */
+async function readApkZip(file,buf){
+  if(!file||file.size<22)throw new Error('This file is empty or too small to be an Android app.');
+  const view=new DataView(buf);
+  const bytes=new Uint8Array(buf);
+  const dec=new TextDecoder('utf-8');
+  const entries=new Map();
+
+  let eocd=-1;
+  for(let i=bytes.length-22;i>=0;i--){
+    if(view.getUint32(i,true)===0x06054b50){eocd=i;break}
+  }
+
+  if(eocd!==-1){
+    let totalEntries=view.getUint16(eocd+10,true);
+    let cdOffset=view.getUint32(eocd+16,true);
+    if(cdOffset===0xFFFFFFFF&&eocd>=20&&view.getUint32(eocd-20,true)===0x07064b50){
+      const z64Off=Number(view.getBigUint64(eocd-12,true));
+      if(z64Off+56<=bytes.length&&view.getUint32(z64Off,true)===0x06064b50){
+        totalEntries=Number(view.getBigUint64(z64Off+32,true));
+        cdOffset=Number(view.getBigUint64(z64Off+48,true));
+      }
+    }
+    let pos=cdOffset;
+    for(let i=0;i<totalEntries&&pos+46<=bytes.length;i++){
+      if(view.getUint32(pos,true)!==0x02014b50)break;
+      const method=view.getUint16(pos+10,true);
+      const compSize=view.getUint32(pos+20,true);
+      const uncompSize=view.getUint32(pos+24,true);
+      const nameLen=view.getUint16(pos+28,true);
+      const extraLen=view.getUint16(pos+30,true);
+      const commentLen=view.getUint16(pos+32,true);
+      const localHeaderOffset=view.getUint32(pos+42,true);
+      const name=dec.decode(bytes.subarray(pos+46,pos+46+nameLen));
+      entries.set(name,{name,method,compSize,uncompSize,localHeaderOffset});
+      pos+=46+nameLen+extraLen+commentLen;
+    }
+  }
+
+  if(entries.size===0){
+    let firstSig=-1;
+    const scanLimit=Math.min(bytes.length-30,65536);
+    for(let i=0;i<=scanLimit;i++){
+      if(view.getUint32(i,true)===0x04034b50){firstSig=i;break}
+    }
+    if(firstSig===-1){
+      const head=new TextDecoder('latin1').decode(bytes.subarray(0,200)).trim();
+      if(/^<!doctype|^<html|^<head|^<script|^\{/i.test(head)){
+        throw new Error('This file is actually a webpage, not an Android app. Please download the actual APK file.');
+      }
+      if(head.startsWith('Rar!'))throw new Error('This is a RAR compressed folder. Unzip it first to get the .apk file inside.');
+      if(head.startsWith('7z'))throw new Error('This is a 7-Zip compressed folder. Unzip it first to get the .apk file inside.');
+      throw new Error('This does not look like a valid Android app (.apk) file.');
+    }
+    let pos=firstSig;
+    while(pos+30<=bytes.length&&view.getUint32(pos,true)===0x04034b50){
+      const flags=view.getUint16(pos+6,true);
+      const method=view.getUint16(pos+8,true);
+      const compSize=view.getUint32(pos+18,true);
+      const uncompSize=view.getUint32(pos+22,true);
+      const nameLen=view.getUint16(pos+26,true);
+      const extraLen=view.getUint16(pos+28,true);
+      const name=dec.decode(bytes.subarray(pos+30,pos+30+nameLen));
+      entries.set(name,{name,method,compSize,uncompSize,localHeaderOffset:pos});
+      if((flags&0x08)!==0&&compSize===0)break;
+      pos+=30+nameLen+extraLen+compSize;
+    }
+  }
+
+  async function extract(name){
+    const e=entries.get(name);
+    if(!e)return null;
+    const lh=e.localHeaderOffset;
+    if(lh+30>bytes.length||view.getUint32(lh,true)!==0x04034b50)return null;
+    const lNameLen=view.getUint16(lh+26,true);
+    const lExtraLen=view.getUint16(lh+28,true);
+    const dataStart=lh+30+lNameLen+lExtraLen;
+    const slice=bytes.subarray(dataStart,dataStart+e.compSize);
+
+    if(e.method===0)return slice;
+    if(e.method===8){
+      if(typeof DecompressionStream==='undefined')throw new Error('Your browser cannot unpack this file.');
+      const ds=new DecompressionStream('deflate-raw');
+      const writer=ds.writable.getWriter();
+      writer.write(slice);
+      writer.close();
+      const out=await new Response(ds.readable).arrayBuffer();
+      return new Uint8Array(out);
+    }
+    throw new Error('Cannot unpack one of the files inside this APK.');
+  }
+
+  return {names:[...entries.keys()],extract};
+}
+
+/* ---------- User-Friendly Knowledge Base ---------- */
+const P='android.permission.';
+const PERMS={
+ READ_SMS:['high','Can read your text messages','Spyware apps often use this to secretly read your bank OTP codes.'],
+ RECEIVE_SMS:['high','Can intercept incoming text messages','Can grab bank OTPs the moment they arrive on your phone.'],
+ SEND_SMS:['high','Can send text messages on its own','Could send paid SMS messages without asking you and use up your balance.'],
+ BIND_ACCESSIBILITY_SERVICE:['high','Can watch your screen & tap buttons for you','A high-risk permission often abused by banking fraud apps to steal passwords.'],
+ SYSTEM_ALERT_WINDOW:['high','Can pop up over other apps','Can place fake login screens on top of your banking or payment apps.'],
+ REQUEST_INSTALL_PACKAGES:['high','Can install other apps on your phone','Could quietly download and install unwanted apps behind your back.'],
+ READ_CALL_LOG:['high','Can read your call history','Lets the app see everyone you call and when you talk to them.'],
+ RECORD_AUDIO:['medium','Can use your microphone','The app can record voice or sounds around your phone.'],
+ CAMERA:['medium','Can use your camera','The app can take photos or record video.'],
+ READ_CONTACTS:['medium','Can read your phone contacts','Lets the app upload your saved names and phone numbers.'],
+ ACCESS_FINE_LOCATION:['medium','Can track your exact GPS location','Knows the exact street and building you are in.'],
+ ACCESS_BACKGROUND_LOCATION:['medium','Can track your location in the background','Tracks where you go even when you are not using the app.'],
+ READ_PHONE_STATE:['medium','Can read your phone & SIM details','Can see your device ID and whether you are on a phone call.'],
+ READ_EXTERNAL_STORAGE:['low','Can view your photos & files','Allows the app to read files saved on your phone storage.'],
+ WRITE_EXTERNAL_STORAGE:['low','Can save or edit files on your phone','Allows the app to save downloads or modify files on your storage.'],
+ GET_ACCOUNTS:['low','Can see accounts signed into your phone','Shows the app which email or social accounts are on your device.'],
+ RECEIVE_BOOT_COMPLETED:['low','Starts automatically when you turn on your phone','Runs in the background every time you restart your device.'],
+ INTERNET:['info','Uses the internet','Normal for most apps, though it means the app can send data online.']
+};
+const PRE_PERM=[
+  'Ask yourself: does this type of app really need this access? (For example, a calculator never needs your SMS or contacts.)',
+  'If you install it, tap "Deny" or "Only while using the app" when it asks for permission.',
+  'You can also turn this off anytime in your phone\'s Settings → Apps → Permissions.'
+];
+
+const TRACKERS=[
+  ['com/facebook/ads','Meta / Facebook Ads'],
+  ['com/facebook/appevents','Meta / Facebook Analytics'],
+  ['com/google/android/gms/ads','Google AdMob'],
+  ['com/google/firebase/analytics','Google Firebase Analytics'],
+  ['com/unity3d/ads','Unity Ads'],
+  ['com/applovin','AppLovin Ads'],
+  ['com/ironsource','ironSource Ads'],
+  ['com/vungle','Vungle / Liftoff Ads'],
+  ['com/bytedance/sdk/openadsdk','Pangle (TikTok Ads)'],
+  ['com/inmobi','InMobi Ads'],
+  ['com/appsflyer','AppsFlyer Attribution Tracker'],
+  ['com/adjust/sdk','Adjust Behaviour Tracker'],
+  ['com/mixpanel','Mixpanel User Analytics'],
+  ['com/amplitude','Amplitude User Analytics'],
+  ['com/onesignal','OneSignal Push & Tracker'],
+  ['com/braze','Braze Marketing Tracker'],
+  ['com/crashlytics','Crashlytics Crash Reporter'],
+  ['io/sentry','Sentry Error Tracker']
+];
+
+function decodeManifestStrings(buf){
+  const latin=new TextDecoder('latin1').decode(buf).replace(/\0/g,'');
+  let utf16='';
+  try{
+    const evenLen=buf.byteLength-(buf.byteLength%2);
+    utf16=new TextDecoder('utf-16le').decode(buf.subarray(0,evenLen)).replace(/\0/g,'');
+  }catch(e){}
+  return latin+'\n'+utf16;
+}
+
+/* ---------- Analysis ---------- */
+const fmtBytes=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.round(n/1024)+' KB';
+async function analyse(file,sha256){
+  $('busyMsg').textContent='KAAPA is sniffing through '+file.name+'…';
+  const buf=await file.arrayBuffer();
+  if(!sha256)sha256=await computeSha256(buf);
+  const zip=await readApkZip(file,buf);
+  const names=zip.names;
+  const F=[];
+  let mb=await zip.extract('AndroidManifest.xml');
+
+  if(!mb){
+    const innerApks=names.filter(n=>/\.apk$/i.test(n));
+    if(innerApks.length){
+      const baseName=innerApks.find(n=>/base\.apk$/i.test(n))||innerApks[0];
+      const innerBytes=await zip.extract(baseName);
+      if(innerBytes){
+        const innerBlob=new Blob([innerBytes]);
+        innerBlob.name=baseName;
+        return analyse(innerBlob,sha256);
+      }
+    }
+    return {err:'This file has no AndroidManifest.xml — it does not look like a valid Android app.'};
+  }
+
+  $('busyMsg').textContent='Checking what permissions this app asks for…';
+  const txt=decodeManifestStrings(mb);
+  let permCount=0;
+  for(const k in PERMS){
+    if(txt.includes(P+k)){
+      permCount++;
+      const [sev,t,d]=PERMS[k];
+      F.push({sev,title:t,desc:d,steps:PRE_PERM});
+    }
+  }
+  if(txt.includes('debuggable')){
+    F.push({sev:'medium',title:'Test / unfinished build setting found',desc:'This app mentions a "debuggable" test setting. If left turned on, attackers could peek inside the app while it runs.',steps:['Avoid installing test builds from random websites.','Download the official public release version instead.']});
+  }
+  if(txt.includes('usesCleartextTraffic')){
+    F.push({sev:'medium',title:'Unencrypted web traffic setting found',desc:'The app includes a setting that can allow sending data over unlocked "http://" connections instead of secure "https://".',steps:['Avoid typing passwords or bank details inside this app on public Wi-Fi.']});
+  }
+
+  const sig=names.filter(n=>/^META-INF\/.+\.(RSA|DSA|EC)$/i.test(n));
+  if(!sig.length){
+    F.push({sev:'medium',title:'No older v1 developer stamp found',desc:'KAAPA did not find a classic v1 signature file inside the app. Newer Android apps often use modern v2/v3 signing instead, which browsers cannot verify offline—or the app may be unsigned.',steps:['If you downloaded this from a trusted store like F-Droid or Play Store, this is normal.','Never install unsigned APKs from unknown websites or random links.']});
+  }
+
+  const dex=names.filter(n=>/^classes\d*\.dex$/.test(n));
+  let urls=new Set(),foundTrackers=new Set(),dyn=false,exec=false;
+  const latinDec=new TextDecoder('latin1');
+  for(let idx=0;idx<dex.length;idx++){
+    $('busyMsg').textContent=`Sniffing for hidden trackers & code (${idx+1}/${dex.length})…`;
+    await new Promise(r=>setTimeout(r,0));
+    const b=await zip.extract(dex[idx]);
+    if(!b)continue;
+    const CHUNK=2*1024*1024;
+    for(let off=0;off<b.length;off+=CHUNK){
+      const s=latinDec.decode(b.subarray(off,Math.min(b.length,off+CHUNK)));
+      (s.match(/http:\/\/[A-Za-z0-9._~:\/?#@!$&%=+\-]{4,80}/g)||[]).forEach(u=>{
+        if(!/schemas\.android|w3\.org|apache\.org|xmlpull|localhost|127\.0\.0\.1|10\.0\.2\.2/.test(u))urls.add(u);
+      });
+      for(const [sigStr,label] of TRACKERS){
+        if(s.includes(sigStr))foundTrackers.add(label);
+      }
+      if(s.includes('DexClassLoader')||s.includes('PathClassLoader'))dyn=true;
+      if(s.includes('Runtime')&&s.includes('exec('))exec=true;
+    }
+  }
+
+  const trackerList=[...foundTrackers];
+  if(trackerList.length){
+    F.push({
+      sev:trackerList.length>=4?'medium':'low',
+      title:trackerList.length+' hidden ad / analytics tracker'+(trackerList.length>1?'s':'')+' detected',
+      desc:'These built-in tracking tools can collect your usage habits, device ID, or ad profile and send them to third-party companies:',
+      pills:trackerList,
+      steps:[
+        'Turn off "Personalized Ads" in your Android phone\'s Settings → Privacy → Ads.',
+        'Consider using an open-source alternative from F-Droid if you want zero tracking.'
+      ]
+    });
+  }
+
+  if(urls.size){
+    F.push({sev:'medium',title:'Connects to '+urls.size+' unlocked http:// web link'+(urls.size>1?'s':''),desc:'Unencrypted links can be read or altered by others on the same Wi-Fi network: '+[...urls].slice(0,4).map(u=>'<code>'+u.replace(/</g,'&lt;')+'</code>').join(' '),steps:['Be careful sharing personal details or passwords in this app on public Wi-Fi.']});
+  }
+  if(dyn){
+    F.push({sev:'medium',title:'Can load extra code after installation',desc:'The app can download and run new code after you install it, which can sometimes hide what it really does.',steps:['Only install this if you completely trust the company or creator who made it.']});
+  }
+  if(exec){
+    F.push({sev:'low',title:'Can run internal phone commands',desc:'The app contains commands to run system instructions (often just checking if your phone is rooted, though occasionally misused).',steps:['Avoid running this app on rooted phones and keep your phone updated.']});
+  }
+
+  const hi=F.filter(f=>f.sev==='high').length,md=F.filter(f=>f.sev==='medium').length,lo=F.filter(f=>f.sev==='low').length;
+  const score=Math.max(5,100-hi*14-md*7-lo*3);
+  if(!F.some(f=>f.sev!=='info')){
+    F.unshift({sev:'low',title:'No risky patterns or trackers spotted!',desc:'KAAPA did not find any risky permissions, hidden ad trackers, or suspicious settings in this app.',steps:['Still install apps only from sources you trust and keep your phone updated.']});
+  }
+  F.sort((a,b)=>['high','medium','low','info'].indexOf(a.sev)-['high','medium','low','info'].indexOf(b.sev));
+  return {
+    F,score,sha256,
+    stats:[
+      ['App Size',fmtBytes(file.size)],
+      ['Files Inside',names.length],
+      ['Code Packs',dex.length],
+      ['Sensitive Access',permCount===0?'None':permCount+' found'],
+      ['Hidden Trackers',trackerList.length===0?'None':trackerList.length+' found'],
+      ['Classic Stamp (v1)',sig.length?'Yes':'No']
+    ],
+    hi,md,lo
+  };
+}
+
+/* ---------- UI ---------- */
+const SEV_LABEL={high:'High Risk',medium:'Be Careful',low:'Good / Minor',info:'Normal'};
+const ICON={high:'alert',medium:'alert',low:'check',info:'info'};
+function showError(msg){const b=$('errBox');b.textContent=msg;b.classList.remove('hide')}
+function clearError(){$('errBox').classList.add('hide')}
+
+async function run(file){
+  clearError();
+  if(!file)return;
+  showView('busy');
+  let r;
+  try{
+    r=await analyse(file);
+  }catch(e){
+    console.error(e);
+    r={err:'KAAPA could not open this file: '+(e&&e.message||e)};
+  }
+  if(r.err){showView('home');showError(r.err);return}
+  showView('report');
+  lastScanContext=`File: ${file.name} | Score: ${r.score}/100 | SHA-256: ${r.sha256}`;
+  $('chatScanTag').textContent='Attached scan: '+file.name+' (Score: '+r.score+'/100)';
+  $('chatScanTag').classList.remove('hide');
+
+  $('fname').textContent='File checked: '+file.name;
+  $('printMeta').textContent='Scanned by KAAPA APK Guardian on '+new Date().toLocaleString();
+  $('shaVal').textContent=r.sha256;
+  $('vtLink').href=/^[0-9a-f]{64}$/.test(r.sha256)?'https://www.virustotal.com/gui/file/'+r.sha256:'https://www.virustotal.com/';
+  $('score').textContent=r.score;
+  const col=r.score>=80?'var(--lo)':r.score>=50?'var(--md)':'var(--hi)';
+  const arc=$('arc');
+  arc.style.stroke=col;
+  arc.style.strokeDashoffset='402';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{arc.style.strokeDashoffset=402-402*r.score/100}));
+
+  const pup2=$('pup2');
+  pup2.classList.remove('happy','cautious','worried');
+  if(r.score>=80){
+    pup2.classList.add('happy');
+    $('verdict').textContent='Good report! Tail wagging. 🐾';
+    $('verdictSub').textContent='KAAPA sniffed everything and found no major red flags.';
+  }else if(r.score>=50){
+    pup2.classList.add('cautious');
+    $('verdict').textContent='Sniffing around: a few things to check';
+    $('verdictSub').textContent='This app has a few items worth reviewing before you install it.';
+  }else{
+    pup2.classList.add('worried');
+    $('verdict').textContent='Barking alert: handle with care!';
+    $('verdictSub').textContent='KAAPA found high-risk permissions often used by unsafe apps.';
+  }
+
+  $('stats').innerHTML=r.stats.map(s=>`<div class="stat"><b>${s[1]}</b><span>${s[0]}</span></div>`).join('');
+  $('list').innerHTML=r.F.map((f,i)=>`<details class="f ${f.sev}" ${i<2?'open':''}><summary>${ic(ICON[f.sev])}${f.title}<span class="chip">${SEV_LABEL[f.sev]}</span></summary><div class="body"><p>${f.desc}</p>${f.pills?'<div class="pills">'+f.pills.map(p=>'<span class="pill">'+p+'</span>').join('')+'</div>':''}<h4><svg class="ico"><use href="#i-step"/></svg>What you should do</h4><ul>${f.steps.map(s=>'<li>'+s+'</li>').join('')}</ul></div></details>`).join('');
+}
+
+/* ---------- Support & Complaint Chat Logic ---------- */
+function openChat(presetType){
+  if(presetType)$('chatType').value=presetType;
+  $('chatBox').classList.add('open');
+  $('chatMsg').focus();
+}
+$('chatClose').onclick=()=>$('chatBox').classList.remove('open');
+$('reportIssueBtn').onclick=()=>openChat('Wrong Scan Result');
+
+function appendChatMsg(text,who){
+  const d=document.createElement('div');
+  d.className='msg '+who;
+  d.textContent=text;
+  $('chatLog').appendChild(d);
+  $('chatLog').scrollTop=$('chatLog').scrollHeight;
+}
+
+$('chatForm').onsubmit=async e=>{
+  e.preventDefault();
+  const type=$('chatType').value;
+  const email=$('chatEmail').value.trim();
+  const text=$('chatMsg').value.trim();
+  if(!text)return;
+
+  appendChatMsg(`[${type}] ${text}`,'usr');
+  $('chatMsg').value='';
+  const btn=$('chatSendBtn');
+  btn.disabled=true;
+  btn.textContent='Sending to host…';
+
+  if(WEB3FORMS_ACCESS_KEY&&WEB3FORMS_ACCESS_KEY!=='YOUR_WEB3FORMS_ACCESS_KEY'){
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({
+          access_key:WEB3FORMS_ACCESS_KEY,
+          subject:`KAAPA Complaint: ${type}`,
+          from_name:'KAAPA User',
+          replyto:email,
+          category:type,
+          scan_context:lastScanContext,
+          message:text
+        })
+      });
+      const data=await res.json();
+      if(data.success){
+        appendChatMsg('Sent! Your message has been delivered directly to the KAAPA host. They will reply to '+email+'.','bot');
+        btn.disabled=false;
+        btn.textContent='Send Message to Host';
+        return;
+      }
+    }catch(err){}
+  }
+
+  const subject=encodeURIComponent(`KAAPA Complaint: ${type}`);
+  const body=encodeURIComponent(`Category: ${type}\nUser Email: ${email}\n${lastScanContext}\n\nMessage:\n${text}`);
+  window.location.href=`mailto:${HOST_EMAIL}?subject=${subject}&body=${body}`;
+  appendChatMsg('Opening your email app to send this message directly to the host!','bot');
+  btn.disabled=false;
+  btn.textContent='Send Message to Host';
+};
+
+/* ---------- Copy Hash & Save as PDF ---------- */
+$('copyHashBtn').onclick=async()=>{
+  const txt=$('shaVal').textContent;
+  try{
+    await navigator.clipboard.writeText(txt);
+    $('copyHashTxt').textContent='Copied!';
+    setTimeout(()=>{$('copyHashTxt').textContent='Copy'},1800);
+  }catch(e){}
+};
+
+$('pdfBtn').onclick=()=>{
+  document.querySelectorAll('#list details').forEach(d=>d.open=true);
+  window.print();
+};
+
+/* ---------- Full-page Drag & Drop, Click, Keyboard & Ctrl+V Paste ---------- */
+let dragDepth=0;
+window.addEventListener('dragenter',e=>{e.preventDefault();dragDepth++;document.body.classList.add('page-drag')});
+window.addEventListener('dragover',e=>e.preventDefault());
+window.addEventListener('dragleave',e=>{e.preventDefault();dragDepth=Math.max(0,dragDepth-1);if(!dragDepth)document.body.classList.remove('page-drag')});
+window.addEventListener('drop',e=>{
+  e.preventDefault();
+  dragDepth=0;
+  document.body.classList.remove('page-drag');
+  $('drop').classList.remove('on');
+  if(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files.length)run(e.dataTransfer.files[0]);
+});
+window.addEventListener('paste',e=>{
+  if(e.clipboardData&&e.clipboardData.files&&e.clipboardData.files.length)run(e.clipboardData.files[0]);
+});
+
+$('drop').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$('file').click()}};
+$('file').onchange=e=>{if(e.target.files&&e.target.files[0])run(e.target.files[0]);e.target.value=''};
+['dragover','dragenter'].forEach(t=>$('drop').addEventListener(t,()=>{$('drop').classList.add('on')}));
+['dragleave','drop'].forEach(t=>$('drop').addEventListener(t,()=>{$('drop').classList.remove('on')}));
+$('again').onclick=()=>{clearError();showView('home')};
+</script>
+</body>
+</html>
